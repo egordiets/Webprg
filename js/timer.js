@@ -3,7 +3,9 @@ function declensionNum(num, words) {
     return words[(num % 100 > 4 && num % 100 < 20) ? 2 : [2, 0, 1, 1, 1, 2][(num % 10 < 5) ? num % 10 : 5]];
 }
 // вычисляем разницу дат и устанавливаем оставшееся времени в качестве содержимого элементов
-export function countdownTimer() {
+export function countdownTimer(timerId) {
+    // конечная дата, вводимая пользователем
+    const deadline = document.getElementById("timer_text");
     const diff = Date.parse(deadline) - new Date();
     if (diff <= 0) {
         clearInterval(timerId);

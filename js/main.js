@@ -25,7 +25,7 @@ form.onsubmit = (event) => {
 
 document.addEventListener('DOMContentLoaded', function () {
     // конечная дата, вводимая пользователем
-    const deadline = document.getElementById("timer_text");
+    //const deadline = document.getElementById("timer_text");
 
     const start = document.getElementById('start');
     const stop = document.getElementById('stop');
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const $minutes = document.querySelector('.timer__minutes');
     const $seconds = document.querySelector('.timer__seconds');
     // вызываем функцию countdownTimer
-    countdownTimer();
+    countdownTimer(timerId);
     // вызываем функцию countdownTimer каждую секунду
     //timerId = setInterval(countdownTimer, 1000);
 });
