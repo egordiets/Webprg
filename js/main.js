@@ -1,7 +1,7 @@
 // import { DateTime } from './luxon.js'
 import { printError, printResult } from './printResult.js'
 import getDateDiff from './getDateDiff.js'
-import countdownTimer from './timer.js'
+import initializeClock from './timer.js'
 
 const form = document.getElementById("datecalc")
 
@@ -23,33 +23,19 @@ form.onsubmit = (event) => {
     }
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-    // конечная дата, вводимая пользователем
-    //const deadline = document.getElementById("timer_text");
+var timeinterval = setInterval(1000);
+let buttonRun = document.getElementById('start');
+let buttonStop = document.getElementById('stop');  
+var deadlineD = document.getElementById('days countdown-time');
+var deadlineH = document.getElementById('hours countdown-time');
+var deadlineM = document.getElementById('minutes countdown-time');
+var deadlineS = document.getElementById('seconds countdown-time');
+buttonRun.addEventListener('click', function() {
+    var deadline="January 01 2018 00:00:00 GMT+0300";
+    var deadline = new Date(Date.parse(new Date()) + deadlineD * deadlineH * deadlineM * deadlineS * 1000); // for endless timer
+    initializeClock('countdown', deadline);
+})
 
-    const start = document.getElementById('start');
-    const stop = document.getElementById('stop');
-
-    // id таймера
-    let timerId = null;
-
-    start.addEventListener('click', function () {
-        let i = 0;
-
-        timerId = setInterval(countdownTimer, 1000);
-    });
-
-    stop.addEventListener('click', function () {
-        clearInterval(timerId);
-    });
-    // получаем элементы, содержащие компоненты даты
-    const $days = document.querySelector('.timer__days');
-    const $hours = document.querySelector('.timer__hours');
-    const $minutes = document.querySelector('.timer__minutes');
-    const $seconds = document.querySelector('.timer__seconds');
-    // вызываем функцию countdownTimer
-    countdownTimer(timerId);
-    // вызываем функцию countdownTimer каждую секунду
-    //timerId = setInterval(countdownTimer, 1000);
+buttonStop.addEventListener('click', function() {
+	clearInterval(timeinterval);
 });
-

@@ -18,17 +18,26 @@
         </ul>
     </div>
     <div class="timer">
-        <input type="text" id="timer_text">
-        <div class="timer__items">
-            <div class="timer__item timer__days">00</div>
-            <div class="timer__item timer__hours">00</div>
-            <div class="timer__item timer__minutes">00</div>
-            <div class="timer__item timer__seconds">00</div>
+        <h1 class="countdown-title">Таймер</h1>
+        <div id="countdown" class="countdown">
+        <div class="countdown-number">
+            <input type="number" class="days countdown-time">
+            <span class="countdown-text">Days</span>
         </div>
-        <div class="buttons">
-            <button id="start">Старт</button>
-            <button id="stop">Стоп</button>
+        <div class="countdown-number">
+            <input type="number" class="hours countdown-time">
+            <span class="countdown-text">Hours</span>
         </div>
+        <div class="countdown-number">
+            <input type="number" class="minutes countdown-time">
+            <span class="countdown-text">Minutes</span>
+        </div>
+        <div class="countdown-number">
+            <input type="number" class="seconds countdown-time">
+            <span class="countdown-text">Seconds</span>
+        </div>
+        <button id = "start">Start</button>
+        <button id="stop">Stop</button>
     </div>
 </body>
 
