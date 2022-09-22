@@ -3,6 +3,8 @@ import { printError, printResult } from './printResult.js'
 import getDateDiff from './getDateDiff.js'
 import initializeClock from './timer.js'
 
+import "../styles/style.css"
+
 const form = document.getElementById("datecalc")
 
 
